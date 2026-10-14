@@ -108,23 +108,21 @@ footer.main-footer .footer-text a:hover {
     background-size: 15px 15px;
     background-color: #d8d8d8;
 }
-/* 卡片盒子固定高度 */
+/* 固定卡片整体高度 */
 .url-card {
     height: 112px !important;
     max-height: 112px !important;
-}
-/* 卡片内部body */
-.url-card .card-body {
-    height: 100% !important;
-}
-/* 卡片描述文字，强制单行，超长省略 */
-.url-card .card-desc {
-    display: -webkit-box !important;
-    -webkit-line-clamp: 1 !important;
-    -webkit-box-orient: vertical !important;
     overflow: hidden !important;
 }
-
+/* 卡片内部容器，限制内容不能撑开盒子 */
+.url-card .card-body {
+    height: 100% !important;
+    max-height: 100% !important;
+    overflow: hidden !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+}
 
 
 
