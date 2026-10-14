@@ -108,6 +108,16 @@ footer.main-footer .footer-text a:hover {
     background-size: 15px 15px;
     background-color: #d8d8d8;
 }
+/* 固定工具卡片统一高度，防止多行描述撑大卡片 */
+.tool-item {
+    height: 112px !important;
+}
+.tool-item .desc {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 1 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
 
 
 
