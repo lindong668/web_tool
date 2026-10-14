@@ -3,8 +3,8 @@
 
 <head>
 <style>
-/* 强制锁定图标区域 */
-.url-card .url-img {
+/* 1. 锁死父容器（兼容 url-img 和真实的 url-imging） */
+div.url-img, div.url-imging, .url-card .url-imging {
     width: 32px !important;
     height: 32px !important;
     max-width: 32px !important;
@@ -12,8 +12,10 @@
     min-width: 32px !important;
     min-height: 32px !important;
     flex-shrink: 0 !important;
+    overflow: hidden !important;
 }
-.url-card .url-img img {
+/* 2. 锁死图片本身（CSS直接命中，不靠JS） */
+div.url-img img, div.url-imging img, .url-card .url-imging img {
     width: 32px !important;
     height: 32px !important;
     max-width: 32px !important;
@@ -21,7 +23,25 @@
     object-fit: contain !important;
     display: block !important;
 }
+/* 3. 覆盖主题底层 max-height:100% 干扰 */
+.url-card .url-imging { max-height: 32px !important; }
 </style>
+<script>
+/* JS终极兜底：修正选择器 + 补全max + 防动态注入 */
+window.addEventListener('DOMContentLoaded', function() {
+  var els = document.querySelectorAll('div.url-img, div.url-imging, div.url-img img, div.url-imging img');
+  els.forEach(function(el) {
+    el.style.width = '32px';
+    el.style.height = '32px';
+    el.style.maxWidth = '32px';
+    el.style.maxHeight = '32px';
+    if(el.tagName === 'IMG') {
+      el.style.objectFit = 'contain';
+      el.style.display = 'block';
+    }
+  });
+});
+</script>
 	<meta name="generator" content="Hugo 0.121.0">
 	
     <meta charset="UTF-8" />
