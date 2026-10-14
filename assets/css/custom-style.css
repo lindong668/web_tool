@@ -108,17 +108,23 @@ footer.main-footer .footer-text a:hover {
     background-size: 15px 15px;
     background-color: #d8d8d8;
 }
-/* 统一webstack卡片高度 */
-.webstack-item {
-    height: 110px !important;
+/* 卡片盒子固定高度 */
+.url-card {
+    height: 112px !important;
+    max-height: 112px !important;
 }
-/* 描述只允许一行，文字溢出截断，不会撑大卡片 */
-.webstack-item-desc {
+/* 卡片内部body */
+.url-card .card-body {
+    height: 100% !important;
+}
+/* 卡片描述文字，强制单行，超长省略 */
+.url-card .card-desc {
     display: -webkit-box !important;
     -webkit-line-clamp: 1 !important;
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
 }
+
 
 
 
